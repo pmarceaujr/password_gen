@@ -21,7 +21,7 @@ function generatePassword() {
 
   //keep looping until the user cancels or enters a valid number between 8 - 128
   while (!validLength) {
-    pwordLength = prompt("Your pasword must be at least 8 characters in length and no loner than 128 characters.\n\rHow long would you like your password to be?")
+    pwordLength = parseInt(prompt("Your pasword must be at least 8 characters in length and no loner than 128 characters.\n\rHow long would you like your password to be?"))
     //check for valid number and length of entry
     if (pwordLength >= 8 && pwordLength <= 128) {
       validLength = true;
@@ -52,14 +52,14 @@ function generatePassword() {
       for (let i = 0; i < pwordLength; i++) {
         password = password + (pwCharactersSets[Math.floor(Math.random() * pwCharactersSets.length)]);
       }
-      return password;
+      //return password;
     }
     else if (!pwordLength) {
       validLength = true;
       return "User canceled operation.";
     }
   }
-}
+} // End generatePassword
 
 // Write password to the #password input
 function writePassword() {
