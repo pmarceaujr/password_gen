@@ -52,7 +52,7 @@ function generatePassword() {
       for (let i = 0; i < pwordLength; i++) {
         password = password + (pwCharactersSets[Math.floor(Math.random() * pwCharactersSets.length)]);
       }
-      //return password;
+      return password;
     }
     else if (!pwordLength) {
       validLength = true;
