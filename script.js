@@ -4,6 +4,8 @@ var generateBtn = document.querySelector("#generate");
 
 //a function to generate a password based on user input of length and character sets
 function generatePassword() {
+  //var passwordText = document.querySelector("#password");
+
   //Declare variables
   let validLength = false;
   let validCharSet = false;
@@ -21,9 +23,9 @@ function generatePassword() {
 
   //keep looping until the user cancels or enters a valid number between 8 - 128
   while (!validLength) {
-    pwordLength = parseInt(prompt("Your pasword must be at least 8 characters in length and no loner than 128 characters.\n\rHow long would you like your password to be?"))
+    pwordLength = prompt("Your pasword must be at least 8 characters in length and no loner than 128 characters.\n\rHow long would you like your password to be?")
     //check for valid number and length of entry
-    if (pwordLength >= 8 && pwordLength <= 128) {
+    if (parseInt(pwordLength) >= 8 && parseInt(pwordLength) <= 128) {
       validLength = true;
       //loop through code until the user selects at least one of the valid chacter sets
       while (!validCharSet) {
@@ -56,7 +58,7 @@ function generatePassword() {
     }
     else if (!pwordLength) {
       validLength = true;
-      return "User canceled operation.";
+      return "User canceled operation by not entering data.";
     }
   }
 } // End generatePassword
@@ -65,10 +67,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
